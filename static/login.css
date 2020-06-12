@@ -1,0 +1,61 @@
+
+@media only screen and (max-width: 600px) {
+	body
+{
+	background-color: #a598ee;
+}
+	.login_card{
+		margin-top: 100px;
+	}
+	.links{
+		font-size: 14px;
+		color: blue;
+	}
+
+	#login{
+		background-color:  #63C76A;
+		color: white;
+	}
+	#cardcss{
+		background-color:  #63C76A;
+	}
+	.login_signup{
+	font-weight: bold;
+	color: white;
+	background-color: #63C76A;
+}
+.button_css{
+	background-color: #63C76A;
+	color:white;
+}
+}
+@media only screen and (min-width: 768px) {
+	body
+{
+	background-color: #a598ee;
+}
+	.login_card{
+		margin-top: 60px;
+	}
+	.links{
+		font-size: 14px;
+		color: blue;
+	}
+	#login_submit{
+		background-color:  #63C76A;
+		color: white;
+	}
+	#cardcss{
+		background-color:  #63C76A;
+	}
+	.login_signup{
+	font-weight: bold;
+	color: white;
+}
+.button_css{
+	background-color: #63C76A;
+	color:white;
+}
+	
+	
+}

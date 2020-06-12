@@ -1,0 +1,51 @@
+<html>
+
+{% include 'headSection.html' %}
+
+<body  style="background-color: #a598ee">
+  {% include 'nav.html' %}
+    <div class="page-content-wrapper" id="background">
+    <br>
+    <br>
+    <br>
+        <div class="row container-fluid login_card">
+            <div class="col-12 col-sm-10 offset-sm-1 col-md-4 offset-md-4">
+                <div class="card">
+                    <div class="card-header text-center" id="cardcss">
+                        <h5 class="login_signup">Login</h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="/login/{{ destination }}" method="POST">
+                            <div class="form-group">
+                                <label for="login_email">Email </label>
+                                <input name="email" type="email" class="form-control" id="login_email" aria-describedby="emailHelp" placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label for="login_password">Password</label>
+                                <input name="password" type="password" class="form-control" id="login_password" placeholder="Password">
+                            </div>
+                            <div class="text-center">
+                                <input id="login_submit" type="submit" class="btn btn-block" value="Submit">
+                            </div>
+                            <div class="text-center links"><a href="/signup"><u>Sign Up</u></a></div>
+                            <div class="text-center links"><a href="#"><u>Forgot Password ?</u></a></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--background image div closed-->
+
+    {% include 'jsLinks.html' %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script> 
+    $(function(){
+      $("#includedContent").load("nav.html"); 
+    });
+    $('.dropdown-toggle').dropdown();
+    </script> 
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<html>
+
+{% include 'headSection.html' %}
+
+<body style="background-color: #a598ee">
+    {% include 'nav.html' %}
+<h2 style="background-color: black;color: white;padding: 20px;width: 80%;margin-left: 10%;margin-top: 10px;border-radius: 10px;border:1px solid black"> Answers </h2>
+<div class="card" style="width: 58rem;padding: 20px;;margin: auto;margin-top: 10px;" >
+    <div class="card-body">
+        <h5 class="card-title" style="font-weight: bold;">{{ myresult }}</h5>
+        {% if (ans|length)==0: %}
+            <p class="card-text" style="font-size: 12px;">Sorry, no answers found</p>
+        {% else: %}
+            <p class="card-text" style="font-size: 12px;">Here are a few answers.</p>
+        {% endif %}
+    </div>
+    <ul class="list-group list-group-flush">
+        {% for i in range (ans|length): %}
+            <li class="list-group-item">{{ ans[i][1] }}</li>
+        {% endfor %}
+    </ul>
+
+    </div>
+    {% include 'jsLinks.html' %}
+    <script>
+    const choices = new Choices('[data-trigger]', {
+        searchEnabled: false,
+        itemSelectText: '',
+    });
+    var card_html = "";
+    for (var i = 0; i < 10; i++) {
+        card_html = card_html + '<div class="card-body"> <h5 class="card-title">What is the best mess in VIT?</h5> <h6 class="card-subtitle mb-2 text-muted">No answers Yet</h6> <button type="button" class="btn btn-dark"><i class="fa fa-pencil-square-o"></i>Answer</button> <button type="button" class="btn btn-dark"><i class="fa fa-ban" aria-hidden="true"></i>Pass</button> </div>';
+    }
+    $("#cardHTML").html(card_html);
+    </script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>

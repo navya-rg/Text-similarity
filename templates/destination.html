@@ -1,0 +1,9 @@
+<script>
+function destination(){
+    var destination = window.location.pathname;
+    destination = destination.replace(/\//g, "+");
+    destination = '/login/'+destination;
+    console.log(destination);
+    window.location.href = destination;
+}
+</script>

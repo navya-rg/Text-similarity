@@ -1,0 +1,68 @@
+<html>
+
+{% include 'headSection.html' %}
+
+  <body style="background-color: #a598ee">
+  	{% include 'nav.html' %}
+    <div class="s003">
+      <form action="/postQuestion" method="POST" id="form_id">
+        <div class="inner-form">
+          <div class="input-field first-wrap">
+            <div class="input-select">
+              <select data-trigger="" name="category" id="category_chose" required>
+                <option value="Category">Category</option>
+                <option value="mess">MESS</option>
+                <option value="ffcs">FFCS</option>
+                <option value="hostel">HOSTEL</option>
+                <option value="faculty">FACULTY</option>
+                <option value="roomcounselling">ROOM COUNSELLING</option>
+                <option value="fee">FEE</option>
+                <option value="other">OTHER</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-field second-wrap">
+            <input id="search" name="question" type="text" placeholder="Post a question" required/>
+          </div>
+          <div class="input-field third-wrap">
+            <button class="btn-search" type="button" onclick="validate()">
+              <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+    {% include 'jsLinks.html' %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    
+    <script>
+      const choices = new Choices('[data-trigger]',
+      {
+        searchEnabled: false,
+        itemSelectText: '',
+      });
+
+
+
+      function validate(){
+      var selectedText = $("#category_chose option:selected").text();
+      var question = $("#search").val();
+        if(selectedText=="Category")
+        {
+          toastr.info('Select a category');
+        }
+        else if(!question)
+        {
+          console.log("*"+question+"*");
+          toastr.info('Question field cannot be empty');
+        }
+        else{
+          document.getElementById('form_id').submit();
+        }
+      }
+
+    </script>
+  </body>
+</html>

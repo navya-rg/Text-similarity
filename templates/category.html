@@ -1,0 +1,67 @@
+<html>
+
+{% include 'headSection.html' %}
+
+<body style="background-color: #a598ee">
+    {% include 'nav.html' %}
+    <h2 style="background-color: black;color: white;padding: 20px;width: 80%;margin-left: 10%;margin-top: 10px;border-radius: 10px;border:1px solid black"> {{ cat }} </h2>
+
+    {% for i in range (myresult|length): %}
+        <div class="card" style="width: 58rem; margin: auto;" id="{{myresult[i][0]}}card">
+            <div class="card-body">
+                <h5 class="card-title">{{ myresult[i][1] }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                    {% if myresult[i][2]==0: %}
+                        No answers yet
+                    {% elif myresult[i][2]==1: %}
+                        1 answer
+                    {% else: %}
+                        {{ myresult[i][2] }} answers
+                    {% endif %}
+                </h6>
+                {% if user: %}
+                    <button type="button" class="btn btn-dark" data-toggle="modal"  data-target="#{{ myresult[i][0] }}"><i class="fas fa-pencil-alt"  ></i> Answer</button>
+                    <button type="button" class="btn btn-dark pass_ques"><i class="fa fa-ban" aria-hidden="true" ></i> Pass</button>
+                {% endif %}
+                <a href="/viewAnswer/{{ myresult[i][0] }}"><button type="button" class="btn btn-dark"><i class="fa fa-list"></i> Show Answers</button></a>
+            </div>
+        </div>
+
+        <div class="modal fade" id="{{ myresult[i][0] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">{{myresult[i][1]}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <form action="/answerQuestion" method="POST">
+                <textarea name="answer" rows="5" autofocus cols="58" style="padding:10px"></textarea>
+                <input name="id" type="hidden"  value="{{myresult[i][0]}}" >
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Post</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+    {% endfor %}
+    <br><br>
+
+    {% include 'jsLinks.html' %}
+    {% include 'destination.html' %}
+
+<script>
+    $('#myModal').modal('toggle');
+    $(function() {
+  $(".pass_ques").click(function() {
+    $(this).parent().parent().hide();
+    return false;
+  });
+});
+</script>
+</body>
+</html>

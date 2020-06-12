@@ -1,0 +1,78 @@
+<html>
+
+{% include 'headSection.html' %}
+
+<style>
+  
+</style>
+<body style="background-color: #a598ee">
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+        <link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet" />
+   {% include 'nav.html' %}
+    <div class="page-content-wrapper" id="background">
+        <div class="row container-fluid login_card">
+            <div class="col-12 col-sm-10 offset-sm-1 col-md-4 offset-md-4">
+                <div class="card mb-5">
+                    <div class="card-header text-center " id="cardcss">
+                        <h5 class="login_signup">Sign Up</h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="/signup" method="POST" id="form_submit">
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label for="first_signup">Name</label>
+                                    <input name="name" type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Eg: John Doe">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label for="last_signup">Registeration No.</label>
+                                    <input name="regno" type="text" class="form-control" id="regno" placeholder="Eg : 17BCE0560">
+                                </div>
+                            </div>
+                          <div class="row">
+                           <div class="form-group col-md-12">
+                                    <label for="email_signup">Email</label>
+                                    <input name="email" type="email" class="form-control" id="email_signup" aria-describedby="emailHelp" placeholder="Eg: ohndoes@emial.com">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label for="password_signup">Password</label>
+                                    <input name="password" type="password" class="form-control" id="password_signup" placeholder="Password">
+                                </div>
+                            </div>
+                             <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label for="degree_signup">Confirm password</label>
+                                    <input name="confirmpass" type="password" class="form-control" id="pass_conf" placeholder="Retype password">
+                                </div>
+                            </div>
+                              <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label for="degree_signup">Branch</label>
+                                    <input name="branch" type="text" class="form-control" id="branch" placeholder="Eg: CSE">
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <input type="submit" class="btn btn-block button_css" style="" value="Submit" id="signup" return false>
+                            </div>
+                            <div class="text-center links"><a href="/login/+"><u>Already have an account? Login</u></a></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--background image div closed-->
+
+    {% include 'jsLinks.html' %}
+    <script src="{{ url_for('static', filename='js/signup.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+   </body>
+
+</html>

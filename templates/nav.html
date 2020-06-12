@@ -1,0 +1,41 @@
+<header>
+  <!--  add dark nav  -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-heading">
+        <button class="toggle-nav" data-toggle="open-navbar1"><i class="fa fa-align-right"></i></button>
+        <a class="brand" href="/" style="margin-left: 10px;font-size: 30px;">queryVIT</a>
+      </div>
+      <div class="menu" id="open-navbar1">
+        <ul class="list">
+          
+            
+          <li class="categories dropdown" id="category"><a href="#" class="dropdown-toggle" id="open-categories" data-toggle="dropdown" data-dropdown="target" role="button" aria-expanded="false">Categories<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+           <li class="nav-categories"><a href="/category/mess">Mess</a></li>
+           <li class="nav-categories"><a href="/category/ffcs">Ffcs</a></li>
+           <li class="nav-categories"><a href="/category/hostel">Hostel</a></li>
+           <li class="nav-categories"><a href="/category/faculty">Faculty</a></li>
+           <li class="nav-categories"><a href="/category/roomcounselling">Room Conselling</a></li>
+           <li class="nav-categories"><a href="/category/fee">Fee</a></li>
+           <li class="nav-categories"><a href="/category/other">Other</a></li>
+        </ul>
+          </li>
+          <li id="postQuestion"><a href="/postQuestion">Post Question</a></li>
+          <li id="answerQuestion"><a href="/answerQuestion">Answer Question</a></li>
+          <li id="aboutUs"><a href="#">About us</a></li>
+          <li id="contactUs"><a href="#">Contact us</a></li>
+          {%  if user: %}
+            <li class="categories dropdown"><a href="#" class="dropdown-toggle" id="open-categories" data-toggle="dropdown" data-dropdown="target" role="button" aria-expanded="false">Hi {{ user }}!<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li id="index" class="nav-categories"><a href="/logout">Logout</a></li>
+              </ul>
+            </li>
+          {%  else: %}
+            <li id="login"><a href="#" onclick="destination()">Login</a></li>
+          {%  endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

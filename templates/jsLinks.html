@@ -1,0 +1,8 @@
+<script src="{{ url_for('static', filename='js/extention/choices.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+<script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script>
+console.log("{{id}}");
+    $("#{{id}}").addClass("active");
+</script>
